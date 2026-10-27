@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<!--
+  Toyota Heritage PH — A Legacy Built for the Road Ahead
+  Designed & Developed by EJ Christian Medilo.
+  Assets: images in assets/img, fonts in assets/fonts.
+-->
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Toyota Heritage PH — A Legacy Built for the Road Ahead</title>
+<link rel="icon" href="assets/img/logo.png" />
+<meta name="description" content="Toyota Heritage PH is an interactive automotive advertising website designed and developed by EJ Christian Medilo." />
+<meta name="author" content="EJ Christian Medilo" />
+<meta name="theme-color" content="#1A0A0A" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Toyota Heritage PH" />
+<meta property="og:title" content="Toyota Heritage PH — A Legacy Built for the Road Ahead" />
+<meta property="og:description" content="An automotive web design project featuring an immersive visual experience, automotive storytelling, and a responsive interface." />
+<meta property="og:image" content="https://commons.wikimedia.org/wiki/Special:FilePath/Toyota%20Fortuner%2C%20Cape%20Town%20(P1060077).jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Toyota Heritage PH — A Legacy Built for the Road Ahead" />
+<meta name="twitter:description" content="An automotive web design project featuring an immersive visual experience, automotive storytelling, and a responsive interface." />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Toyota Heritage PH",
+  "description": "An automotive web design project featuring an immersive visual experience, automotive storytelling, and a responsive interface.",
+  "author": { "@type": "Person", "name": "EJ Christian Medilo" }
+}
+</script>
+<link rel="stylesheet" href="assets/fonts.css" />
+<script>try{var t=localStorage.getItem('tp-theme')||'dark';document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#E60012; --red-dim:#C00010; --red-bright:#ff3340; --red-glow:rgba(230,0,18,.35);
+  --night:#1A0A0A; --night-2:#150a10; --r-paper:#FFF5F5; --r-paper-2:#FAEAEA; --r-ink:#1A1A1A;
+  --paper:var(--r-paper); --paper-2:var(--r-paper-2); --ink:var(--r-ink);
+  --solid:#1A1A1A; --on-solid:#fff;
+  --serif:'Fraunces',Georgia,serif; --sans:'Manrope',system-ui,sans-serif;
+  --mono:'JetBrains Mono',monospace; --script:'Petit Formal Script',cursive;
+  --ease:cubic-bezier(.22,1,.36,1); --ease-2:cubic-bezier(.16,1,.3,1);
+}
+:root[data-theme="dark"]{
+  --page-bg:var(--night); --page-fg:#fff;
+  --paper:var(--night); --paper-2:var(--night-2); --ink:#fff;
+  --card-solid:rgba(255,255,255,.05); --bar-track:rgba(255,255,255,.1);
+  --muted:rgba(255,255,255,.55); --hairline:rgba(255,255,255,.12);
+  --nav-bg:rgba(26,10,10,.72); --nav-fg:#fff; --mesh:rgba(230,0,18,.04);
+}
+:root[data-theme="light"]{
+  --page-bg:var(--r-paper); --page-fg:var(--r-ink);
+  --paper:var(--r-paper); --paper-2:var(--r-paper-2); --ink:var(--r-ink);
+  --card-solid:#ffffff; --bar-track:rgba(0,0,0,.06);
+  --muted:rgba(26,26,26,.6); --hairline:rgba(0,0,0,.12);
+  --nav-bg:rgba(255,245,245,.78); --nav-fg:var(--r-ink); --mesh:rgba(230,0,18,.05);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans); background:var(--page-bg); color:var(--page-fg);
+  line-height:1.6; overflow-x:hidden; transition:background .5s var(--ease),color .5s var(--ease);
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+::selection{background:var(--red);color:#fff}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--red);border-radius:10px;border:2px solid var(--page-bg)}
+::-webkit-scrollbar-thumb:hover{background:var(--red-dim)}
+
+.noise{position:fixed;inset:0;z-index:9990;pointer-events:none;opacity:.035;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* PRELOADER */
+#preloader{position:fixed;inset:0;z-index:10000;background:#1A0A0A;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:28px;transition:opacity .8s var(--ease),visibility .8s}
+#preloader.hide{opacity:0;visibility:hidden}
+.pl-logo{font-family:var(--serif);font-weight:700;font-size:clamp(2.5rem,7vw,5rem);letter-spacing:-.03em;color:#fff}
+.pl-logo .dot{color:var(--red)}
+.pl-bar{width:min(280px,60vw);height:2px;background:rgba(255,255,255,.12);overflow:hidden;border-radius:2px}
+.pl-bar span{display:block;height:100%;width:0;background:var(--red);animation:plFill 1.4s var(--ease) forwards}
+@keyframes plFill{0%{width:0}100%{width:100%}}
+.pl-text{font-family:var(--mono);font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--red),var(--red-bright));z-index:9980;transition:width .1s linear}
+
+/* NAV */
+nav#mainnav{position:fixed;top:0;left:0;right:0;z-index:9970;display:flex;align-items:center;gap:24px;
+  padding:18px clamp(20px,4vw,56px);transition:background .4s var(--ease),backdrop-filter .4s,box-shadow .4s,padding .4s;
+  background:transparent}
+nav#mainnav.scrolled{background:var(--nav-bg);backdrop-filter:blur(18px) saturate(140%);box-shadow:0 1px 0 var(--hairline);padding:14px clamp(20px,4vw,56px)}
+.nav-logo{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-weight:700;font-size:1.25rem;letter-spacing:-.02em}
+.nav-logo img{width:30px;height:auto;transition:filter .4s}
+nav#mainnav:not(.scrolled) .nav-logo img{filter:brightness(0) invert(1)}
+.nav-logo .dot{color:var(--red)}
+.nav-links{display:flex;gap:26px;margin-left:auto;align-items:center}
+.nav-links a{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  position:relative;padding:6px 0;transition:color .3s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--red);transition:width .3s var(--ease)}
+.nav-links a:hover,.nav-links a.active{color:var(--page-fg)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.theme-toggle{width:42px;height:42px;border-radius:50%;border:1px solid var(--hairline);display:flex;align-items:center;
+  justify-content:center;transition:.3s;flex-shrink:0}
+.theme-toggle:hover{border-color:var(--red);color:var(--red);transform:rotate(20deg)}
+.theme-toggle svg{width:18px;height:18px}
+.theme-toggle .moon{display:none}
+:root[data-theme="dark"] .theme-toggle .sun{display:none}
+:root[data-theme="dark"] .theme-toggle .moon{display:block}
+.nav-cta{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:11px 20px;
+  background:var(--red);color:#fff;border-radius:999px;transition:.3s;white-space:nowrap}
+.nav-cta:hover{background:var(--red-dim);transform:translateY(-2px);box-shadow:0 10px 24px var(--red-glow)}
+nav#mainnav:not(.scrolled) .nav-logo{color:#fff}
+nav#mainnav:not(.scrolled) .nav-links a{color:rgba(255,255,255,.85)}
+nav#mainnav:not(.scrolled) .nav-links a:hover,nav#mainnav:not(.scrolled) .nav-links a.active{color:#fff}
+nav#mainnav:not(.scrolled) .burger span{background:#fff}
+nav#mainnav:not(.scrolled) .theme-toggle{color:#fff;border-color:rgba(255,255,255,.3)}
+nav#mainnav.scrolled .nav-logo{color:var(--page-fg)}
+nav#mainnav.scrolled .burger span{background:var(--page-fg)}
+:root[data-theme="dark"] nav#mainnav.scrolled .nav-logo img{filter:brightness(0) invert(1)}
+.burger{display:none;flex-direction:column;gap:5px;width:42px;height:42px;align-items:center;justify-content:center}
+.burger span{width:22px;height:2px;background:var(--page-fg);transition:.3s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;z-index:9965;background:var(--page-bg);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px;opacity:0;visibility:hidden;transition:.4s var(--ease)}
+.mobile-menu.open{opacity:1;visibility:visible}
+.mobile-menu a{font-family:var(--serif);font-size:2rem;color:var(--page-fg);padding:10px 0;opacity:0;transform:translateY(20px)}
+.mobile-menu.open a{opacity:1;transform:none;transition:.4s var(--ease)}
+.mobile-menu.open a:nth-child(1){transition-delay:.05s}.mobile-menu.open a:nth-child(2){transition-delay:.1s}
+.mobile-menu.open a:nth-child(3){transition-delay:.15s}.mobile-menu.open a:nth-child(4){transition-delay:.2s}
+.mobile-menu.open a:nth-child(5){transition-delay:.25s}.mobile-menu.open a:nth-child(6){transition-delay:.3s}
+.mobile-menu.open a:nth-child(7){transition-delay:.35s}.mobile-menu.open a:nth-child(8){transition-delay:.4s}
+.mobile-menu a:hover{color:var(--red)}
+@media(max-width:980px){.nav-links{display:none}.nav-cta{display:none}.burger{display:flex}}
+
+/* SHARED */
+section{position:relative;padding:clamp(80px,12vh,140px) clamp(20px,5vw,80px);overflow:hidden}
+section::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:60px;background:linear-gradient(180deg,transparent,var(--red));opacity:.5}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--red);
+  display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--red)}
+h2.sec-title{font-family:var(--serif);font-weight:600;font-size:clamp(2.2rem,5vw,4rem);line-height:1.04;
+  letter-spacing:-.02em;margin:18px 0 24px}
+h2.sec-title em{font-style:italic;color:var(--red)}
+.lead{font-size:clamp(1rem,1.4vw,1.18rem);color:var(--muted);max-width:60ch}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal-stagger>*{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal-stagger.in>*{opacity:1;transform:none}
+.reveal-stagger.in>*:nth-child(2){transition-delay:.08s}
+.reveal-stagger.in>*:nth-child(3){transition-delay:.16s}
+.reveal-stagger.in>*:nth-child(4){transition-delay:.24s}
+.reveal-stagger.in>*:nth-child(5){transition-delay:.32s}
+.reveal-stagger.in>*:nth-child(6){transition-delay:.4s}
+.btn{font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;padding:15px 28px;
+  border-radius:999px;display:inline-flex;align-items:center;gap:10px;transition:.35s var(--ease);min-height:44px;position:relative}
+.btn .arr{transition:transform .35s var(--ease)}
+.btn:hover .arr{transform:translateX(6px)}
+.btn-primary{background:var(--red);color:#fff}
+.btn-primary:hover{background:var(--red-dim);transform:translateY(-3px);box-shadow:0 14px 30px var(--red-glow)}
+.btn-ghost{border:1px solid var(--hairline);color:var(--page-fg)}
+.btn-ghost:hover{border-color:var(--red);color:var(--red)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,.reveal-stagger>*{opacity:1;transform:none}}
+
+/* HERO */
+#hero{height:100vh;min-height:640px;display:flex;align-items:flex-end;padding:0 clamp(20px,5vw,80px) clamp(60px,10vh,110px);padding-top:120px}
+#hero::before{display:none}
+.hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-bg img{width:100%;height:120%;object-fit:cover;transform:scale(1.08);will-change:transform}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,10,10,.35) 0%,rgba(26,10,10,.15) 30%,rgba(26,10,10,.55) 70%,rgba(26,10,10,.95) 100%)}
+.hero-glow{position:absolute;width:60vw;height:60vw;max-width:700px;max-height:700px;border-radius:50%;
+  background:radial-gradient(circle,var(--red-glow),transparent 65%);top:15%;right:-10%;z-index:1;
+  filter:blur(40px);animation:float 9s ease-in-out infinite}
+.hero-glow-2{position:absolute;width:30vw;height:30vw;max-width:380px;max-height:380px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,51,64,.25),transparent 70%);bottom:10%;left:-5%;z-index:1;
+  filter:blur(50px);animation:float 11s ease-in-out infinite reverse}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,30px)}}
+.hero-content{position:relative;z-index:2;max-width:1100px}
+.hero-eyebrow{color:rgba(255,255,255,.95);font-size:clamp(.85rem,1.7vw,1.2rem);letter-spacing:.34em;font-weight:600}
+.hero-creators{position:absolute;bottom:clamp(60px,10vh,110px);right:clamp(20px,5vw,80px);z-index:3;display:flex;align-items:center;gap:14px;background:rgba(26,10,10,.55);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.18);padding:10px 20px 10px 10px;border-radius:999px;opacity:0;transform:translateY(20px);transition:.9s var(--ease) .8s;box-shadow:0 14px 40px rgba(0,0,0,.4)}
+.hero.in .hero-creators{opacity:1;transform:none}
+.hero-creators .avs{display:flex;flex-shrink:0}
+.hero-creators .avs img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.3)}
+.hero-creators .avs img+img{margin-left:-14px}
+.hero-creators .meta{display:flex;flex-direction:column;line-height:1.25}
+.hero-creators .meta .k{font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.hero-creators .meta .n{font-family:var(--serif);font-size:.95rem;color:#fff;font-weight:600}
+@media(max-width:640px){.hero-creators{display:none}}
+.hero-eyebrow::before{background:var(--red)}
+.hero-title{font-family:var(--serif);font-weight:600;font-size:clamp(2.6rem,7vw,6rem);line-height:.98;
+  letter-spacing:-.025em;color:#fff;margin:22px 0}
+.hero-title .line{display:block;overflow:hidden}
+.hero-title .line span{display:block;transform:translateY(110%);transition:transform 1s var(--ease-2)}
+.hero.in .hero-title .line span{transform:none}
+.hero.in .hero-title .line:nth-child(2) span{transition-delay:.15s}
+.hero-title .accent{font-style:italic;background:linear-gradient(90deg,#ff5a4d,#E60012 60%,#ff3340);-webkit-background-clip:text;
+  background-clip:text;color:transparent}
+.hero-sub{color:rgba(255,255,255,.8);max-width:52ch;font-size:clamp(1rem,1.4vw,1.18rem);margin-bottom:34px;
+  opacity:0;transform:translateY(20px);transition:.9s var(--ease) .5s}
+.hero.in .hero-sub{opacity:1;transform:none}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;opacity:0;transform:translateY(20px);transition:.9s var(--ease) .65s}
+.hero.in .hero-ctas{opacity:1;transform:none}
+.hero-ctas .btn-ghost{border-color:rgba(255,255,255,.4);color:#fff}
+.hero-ctas .btn-ghost:hover{border-color:var(--red);color:var(--red)}
+.scroll-cue{position:absolute;bottom:34px;left:clamp(20px,5vw,80px);z-index:2;display:flex;align-items:center;gap:12px;
+  color:rgba(255,255,255,.6);font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase}
+.mouse{width:22px;height:34px;border:1.5px solid rgba(255,255,255,.5);border-radius:12px;position:relative}
+.mouse::before{content:"";position:absolute;top:6px;left:50%;width:3px;height:7px;background:var(--red);border-radius:2px;
+  transform:translateX(-50%);animation:scrollDot 1.6s infinite}
+@keyframes scrollDot{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}80%{opacity:0;transform:translate(-50%,12px)}}
+
+/* MARQUEE */
+.marquee{background:var(--night);padding:30px 0;overflow:hidden;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+.marquee-track{display:flex;gap:0;white-space:nowrap;animation:scrollX 28s linear infinite;width:max-content}
+.marquee-track span{font-family:var(--serif);font-style:italic;font-size:clamp(1.6rem,3vw,2.6rem);color:#fff;padding:0 30px;font-weight:500}
+.marquee-track .sep{color:var(--red);font-style:normal}
+@keyframes scrollX{to{transform:translateX(-50%)}}
+
+/* PHILOSOPHY */
+#philosophy{background:var(--page-bg);background-image:radial-gradient(circle at 80% 20%,var(--mesh),transparent 50%)}
+.phil-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,90px);align-items:center;max-width:1300px;margin:0 auto}
+.phil-quote{font-family:var(--script);font-size:clamp(1.8rem,3vw,2.6rem);color:var(--red);margin-top:28px;line-height:1.2}
+.phil-img-wrap{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:8px;box-shadow:0 30px 60px rgba(0,0,0,.25)}
+.phil-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.phil-img-wrap:hover img{transform:scale(1.08)}
+.phil-badge{position:absolute;bottom:24px;left:24px;background:rgba(26,10,10,.85);backdrop-filter:blur(8px);
+  padding:14px 20px;border-radius:6px;font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.15)}
+.phil-badge .red{color:var(--red)}
+@media(max-width:820px){.phil-grid{grid-template-columns:1fr}}
+
+/* STORY SLIDESHOW */
+#story{background:var(--night);color:#fff}
+.story-head{max-width:1300px;margin:0 auto 50px;text-align:center}
+.story-head .eyebrow{justify-content:center}
+.story-stage{max-width:1200px;margin:0 auto;height:clamp(420px,60vh,600px);position:relative;border-radius:12px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.story-slide{position:absolute;inset:0;opacity:0;transition:opacity 1s var(--ease)}
+.story-slide.active{opacity:1}
+.story-slide img{width:100%;height:100%;object-fit:cover;transform:scale(1);transition:transform 6s linear}
+.story-slide.active img{transform:scale(1.12)}
+.story-slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(26,10,10,.9) 0%,rgba(26,10,10,.5) 50%,rgba(26,10,10,.1) 100%)}
+.story-text{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:clamp(30px,6vw,80px);max-width:620px}
+.story-era{font-family:var(--mono);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.story-title{font-family:var(--serif);font-weight:600;font-size:clamp(1.8rem,4vw,3rem);line-height:1.05;margin-bottom:16px}
+.story-desc{color:rgba(255,255,255,.82);font-size:1.05rem}
+.story-nav{position:absolute;z-index:3;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;
+  background:rgba(255,255,255,.12);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.2);color:#fff;
+  display:flex;align-items:center;justify-content:center;transition:.3s;font-size:1.4rem}
+.story-nav:hover{background:var(--red);border-color:var(--red);transform:translateY(-50%) scale(1.1)}
+.story-nav.prev{left:20px}.story-nav.next{right:20px}
+.story-dots{display:flex;gap:10px;justify-content:center;margin-top:30px}
+.story-dots button{width:36px;height:4px;border-radius:2px;background:rgba(255,255,255,.2);position:relative;overflow:hidden;border:none}
+.story-dots button.active::after{content:"";position:absolute;inset:0;background:var(--red);transform-origin:left;animation:dotFill 6s linear forwards}
+@keyframes dotFill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* TIMELINE */
+#heritage{background:var(--night-2);color:#fff}
+.tl-head{max-width:1300px;margin:0 auto 40px}
+.tl-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;max-width:1300px;margin:0 auto 30px;scrollbar-width:none}
+.tl-tabs::-webkit-scrollbar{display:none}
+.tl-tab{font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;padding:12px 22px;
+  border-radius:999px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);white-space:nowrap;transition:.3s;min-height:44px;flex-shrink:0}
+.tl-tab.active{background:var(--red);border-color:var(--red);color:#fff}
+.tl-tab:hover:not(.active){border-color:var(--red);color:var(--red)}
+.tl-body{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,5vw,70px);align-items:center;max-width:1300px;margin:0 auto;min-height:340px}
+.tl-img{position:relative;aspect-ratio:16/10;border-radius:10px;overflow:hidden;box-shadow:0 24px 50px rgba(0,0,0,.4)}
+.tl-img img{width:100%;height:100%;object-fit:cover}
+.tl-watermark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--serif);font-weight:700;
+  font-size:clamp(4rem,12vw,9rem);color:rgba(255,255,255,.12);pointer-events:none;white-space:nowrap}
+.tl-text .tl-year{font-family:var(--mono);font-size:.78rem;letter-spacing:.2em;color:var(--red);text-transform:uppercase;margin-bottom:12px}
+.tl-text h3{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:16px}
+.tl-text p{color:rgba(255,255,255,.75);font-size:1.05rem}
+.tl-arrows{display:flex;gap:12px;margin:28px auto 0;max-width:1300px}
+.tl-arrows button{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.2);color:#fff;display:flex;align-items:center;justify-content:center;transition:.3s}
+.tl-arrows button:hover{background:var(--red);border-color:var(--red);transform:scale(1.1)}
+@media(max-width:820px){.tl-body{grid-template-columns:1fr}}
+
+/* PHILIPPINES */
+#philippines{background:var(--paper);color:var(--ink)}
+.ph-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1300px;margin:0 auto 50px;align-items:end}
+.ph-head h2{color:var(--ink)}
+.ph-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1300px;margin:0 auto 50px}
+.ph-stat{padding:30px 24px;border:1px solid var(--hairline);border-radius:12px;background:var(--card-solid);transition:.35s var(--ease)}
+.ph-stat:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(230,0,18,.12);border-color:rgba(230,0,18,.2)}
+.ph-stat .num{font-family:var(--serif);font-weight:700;font-size:clamp(2.2rem,4vw,3.2rem);color:var(--red);line-height:1}
+.ph-stat .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+.ph-charts{display:grid;grid-template-columns:1fr 1fr;gap:30px;max-width:1300px;margin:0 auto}
+.chart-card{background:var(--card-solid);border:1px solid var(--hairline);border-radius:14px;padding:30px;transition:.35s var(--ease)}
+.chart-card:hover{box-shadow:0 18px 40px rgba(0,0,0,.06)}
+.chart-card h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+.bar-row{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.bar-row .name{width:120px;font-size:.85rem;font-weight:600}
+.bar-track{flex:1;height:10px;background:var(--bar-track);border-radius:6px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--red-bright));border-radius:6px;width:0;transition:width 1.4s var(--ease)}
+.bar-row .val{font-family:var(--mono);font-size:.78rem;width:42px;text-align:right}
+.donut-wrap{display:flex;align-items:center;gap:30px;flex-wrap:wrap}
+.donut-legend{display:flex;flex-direction:column;gap:12px}
+.donut-legend .li{display:flex;align-items:center;gap:10px;font-size:.85rem}
+.donut-legend .sw{width:12px;height:12px;border-radius:3px}
+.ph-disclaimer{max-width:1300px;margin:30px auto 0;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+@media(max-width:820px){.ph-head,.ph-charts{grid-template-columns:1fr}.ph-stats{grid-template-columns:1fr 1fr}}
+
+/* VEHICLES */
+#vehicles{background:var(--paper);color:var(--ink);background-image:radial-gradient(circle at 20% 10%,var(--mesh),transparent 40%)}
+.veh-head{max-width:1300px;margin:0 auto 40px}
+.veh-head h2{color:var(--ink)}
+.veh-controls{max-width:1300px;margin:0 auto 28px;display:flex;flex-direction:column;gap:18px}
+.veh-search{width:100%;max-width:420px;padding:14px 20px;border:1px solid var(--hairline);border-radius:999px;
+  background:var(--card-solid);font-family:var(--sans);font-size:.95rem;min-height:44px;transition:.3s}
+.veh-search:focus{outline:2px solid var(--red);outline-offset:2px;border-color:var(--red);box-shadow:0 0 0 4px var(--red-glow)}
+.veh-filters{display:flex;gap:8px;flex-wrap:wrap}
+.veh-filter{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:10px 18px;
+  border-radius:999px;border:1px solid var(--hairline);background:var(--card-solid);color:var(--muted);transition:.3s;min-height:44px}
+.veh-filter.active{background:var(--solid);color:var(--on-solid);border-color:var(--solid)}
+.veh-filter:hover:not(.active){border-color:var(--red);color:var(--red)}
+.veh-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1300px;margin:0 auto}
+.veh-card{perspective:1000px;cursor:pointer}
+.veh-card-inner{position:relative;border-radius:14px;overflow:hidden;background:var(--card-solid);border:1px solid var(--hairline);
+  transition:transform .3s var(--ease),box-shadow .3s,border-color .3s;transform-style:preserve-3d}
+.veh-card-inner:hover{box-shadow:0 28px 60px rgba(0,0,0,.18);border-color:rgba(230,0,18,.3)}
+.veh-img{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--card-solid)}
+.veh-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.veh-card:hover .veh-img img{transform:scale(1.08)}
+.veh-tag{position:absolute;top:14px;left:14px;font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--solid);color:var(--on-solid);padding:6px 12px;border-radius:999px;backdrop-filter:blur(4px)}
+.veh-spec-preview{position:absolute;inset:0;background:linear-gradient(180deg,transparent 25%,rgba(26,10,10,.95) 100%);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:20px;opacity:0;transition:opacity .4s var(--ease)}
+.veh-card:hover .veh-spec-preview{opacity:1}
+.veh-spec-preview .sp{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.7rem;color:#fff;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.veh-spec-preview .sp:last-child{border:none}
+.veh-spec-preview .sp .k{color:rgba(255,255,255,.55)}
+.veh-body{padding:20px 22px 24px;position:relative}
+.veh-body::before{content:"";position:absolute;top:0;left:22px;right:22px;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.veh-card:hover .veh-body::before{transform:scaleX(1)}
+.veh-name{font-family:var(--serif);font-weight:600;font-size:1.4rem;color:var(--ink)}
+.veh-tagline{font-size:.9rem;color:var(--muted);margin:6px 0 16px}
+.veh-explore{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:8px;transition:gap .3s}
+.veh-card:hover .veh-explore{gap:14px}
+.veh-empty{grid-column:1/-1;text-align:center;padding:60px;color:var(--muted);font-family:var(--serif);font-size:1.4rem}
+@media(max-width:1024px){.veh-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.veh-grid{grid-template-columns:1fr}}
+
+/* COMPARE BAR */
+#comparebar{position:fixed;bottom:0;left:0;right:0;z-index:9950;background:var(--solid);color:var(--on-solid);
+  padding:16px clamp(20px,4vw,40px);display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  transform:translateY(120%);transition:transform .5s var(--ease);box-shadow:0 -10px 40px rgba(0,0,0,.3)}
+#comparebar.show{transform:none}
+.compare-chips{display:flex;gap:10px;flex-wrap:wrap;flex:1}
+.compare-chip{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);padding:8px 8px 8px 16px;border-radius:999px;font-size:.85rem}
+.compare-chip button{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:1rem;transition:.2s}
+.compare-chip button:hover{background:var(--red)}
+.compare-actions{display:flex;gap:10px}
+.compare-actions button{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;padding:11px 20px;border-radius:999px;transition:.3s;min-height:44px}
+.btn-clear{border:1px solid rgba(255,255,255,.2)}
+.btn-clear:hover{border-color:var(--red);color:var(--red)}
+.btn-compare{background:var(--red);color:#fff}
+.btn-compare:disabled{opacity:.4;cursor:not-allowed}
+
+/* INNOVATION */
+#innovation{background:var(--paper);color:var(--ink);position:relative}
+.inn-bg{position:absolute;inset:0;z-index:0;opacity:0}
+.inn-bg img{width:100%;height:100%;object-fit:cover;filter:blur(2px)}
+.inn-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,245,245,.94),rgba(255,245,245,.75))}
+.inn-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px);max-width:1300px;margin:0 auto}
+.inn-list{display:flex;flex-direction:column;gap:8px}
+.inn-item{padding:22px 24px;border:1px solid var(--hairline);border-radius:10px;cursor:pointer;transition:.35s var(--ease);background:var(--card-solid)}
+.inn-item.active{background:var(--solid);color:var(--on-solid);border-color:var(--solid);border-left:3px solid var(--red)}
+.inn-item .num{font-family:var(--mono);font-size:.68rem;color:var(--red);letter-spacing:.16em}
+.inn-item h4{font-family:var(--serif);font-size:1.3rem;margin:6px 0}
+.inn-item p{font-size:.88rem;color:var(--muted);opacity:0;max-height:0;overflow:hidden;transition:.4s var(--ease)}
+.inn-item.active p{opacity:1;max-height:80px;margin-top:8px}
+.inn-visual{background:var(--solid);color:var(--on-solid);border-radius:16px;padding:clamp(30px,5vw,60px);display:flex;flex-direction:column;
+  justify-content:center;min-height:420px;position:relative;overflow:hidden}
+.inn-visual::before{content:"";position:absolute;width:320px;height:320px;border-radius:50%;
+  background:radial-gradient(circle,var(--red-glow),transparent 70%);top:-80px;right:-80px;filter:blur(30px)}
+.inn-visual::after{content:"";position:absolute;width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,51,64,.2),transparent 70%);bottom:-60px;left:-40px;filter:blur(30px)}
+.inn-icon{width:64px;height:64px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;margin-bottom:24px;position:relative;z-index:1}
+.inn-visual h3{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);position:relative;z-index:1;margin-bottom:14px}
+.inn-visual p{color:rgba(255,255,255,.75);position:relative;z-index:1;max-width:42ch}
+@media(max-width:820px){.inn-grid{grid-template-columns:1fr}}
+
+/* WHY TOYOTA */
+#why{background:var(--paper);color:var(--ink)}
+.why-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;max-width:1400px;margin:0 auto}
+.why-card{position:relative;aspect-ratio:3/4;border-radius:12px;overflow:hidden;cursor:pointer}
+.why-card img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.why-card:hover img{transform:scale(1.1)}
+.why-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(26,10,10,.95) 100%);transition:background .4s}
+.why-card:hover::after{background:linear-gradient(180deg,rgba(26,10,10,.5) 0%,rgba(26,10,10,.98) 100%)}
+.why-body{position:absolute;bottom:0;left:0;right:0;padding:24px;z-index:2;color:#fff}
+.why-body .num{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;color:var(--red)}
+.why-body h4{font-family:var(--serif);font-size:1.3rem;margin-top:6px}
+@media(max-width:1024px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.why-grid{grid-template-columns:1fr}}
+
+/* MISSION VISION */
+#mission{position:relative;background:var(--night);color:#fff;overflow:hidden}
+.mv-bg{position:absolute;inset:0;z-index:0}
+.mv-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.3);opacity:.45}
+.mv-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:30px;max-width:1100px;margin:0 auto}
+.mv-card{position:relative;background:rgba(255,255,255,.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.12);
+  border-radius:16px;padding:clamp(36px,5vw,64px);overflow:hidden;transition:border-color .4s,transform .4s;min-height:360px;display:flex;flex-direction:column;justify-content:center}
+.mv-card:hover{border-top:3px solid var(--red);transform:translateY(-6px)}
+.mv-watermark{position:absolute;top:10px;right:24px;font-family:var(--serif);font-weight:700;font-size:9rem;color:rgba(255,255,255,.06)}
+.mv-icon{width:60px;height:60px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;margin-bottom:24px;position:relative;z-index:1}
+.mv-icon::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--red);animation:ring 2s ease-out infinite}
+@keyframes ring{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.8);opacity:0}}
+.mv-card h3{font-family:var(--serif);font-size:1.6rem;margin-bottom:14px;position:relative;z-index:1}
+.mv-card p{color:rgba(255,255,255,.8);font-size:1.1rem;position:relative;z-index:1}
+@media(max-width:820px){.mv-grid{grid-template-columns:1fr}}
+
+/* CAMPAIGN */
+#campaign{background:var(--night);color:#fff}
+.camp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1300px;margin:0 auto}
+.camp-card{position:relative;aspect-ratio:3/4;border-radius:12px;overflow:hidden;cursor:pointer}
+.camp-card img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.camp-card:hover img{transform:scale(1.08)}
+.camp-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(26,10,10,.95) 100%)}
+.camp-body{position:absolute;bottom:0;left:0;right:0;padding:30px;z-index:2}
+.camp-body h4{font-family:var(--serif);font-size:1.5rem;margin-bottom:8px}
+.camp-body p{font-family:var(--script);font-size:1.2rem;color:var(--red)}
+@media(max-width:820px){.camp-grid{grid-template-columns:1fr}}
+
+/* GALLERY */
+#gallery{background:var(--paper);color:var(--ink)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:14px;max-width:1400px;margin:0 auto}
+.gal-item{position:relative;overflow:hidden;border-radius:10px;cursor:pointer}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.gal-item:hover img{transform:scale(1.1)}
+.gal-item::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(26,10,10,.9));opacity:0;transition:.4s}
+.gal-item:hover::after{opacity:1}
+.gal-cap{position:absolute;bottom:16px;left:16px;z-index:2;color:#fff;font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;opacity:0;transform:translateY(10px);transition:.4s}
+.gal-item:hover .gal-cap{opacity:1;transform:none}
+.gal-tall{grid-row:span 2}.gal-wide{grid-column:span 2}.gal-big{grid-row:span 2;grid-column:span 2}
+@media(max-width:820px){.gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}.gal-big{grid-column:span 2;grid-row:span 2}.gal-wide{grid-column:span 2;grid-row:span 1}.gal-tall{grid-row:span 2}}
+
+#lightbox{position:fixed;inset:0;z-index:10001;background:rgba(10,5,5,.95);display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transition:.4s}
+#lightbox.open{opacity:1;visibility:visible}
+#lightbox img{max-width:88vw;max-height:82vh;border-radius:8px;object-fit:contain;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;display:flex;align-items:center;justify-content:center;transition:.3s;font-size:1.6rem}
+.lb-nav:hover{background:var(--red)}
+.lb-nav.prev{left:24px}.lb-nav.next{right:24px}
+.lb-close{position:absolute;top:24px;right:24px;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.1);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.4rem;transition:.3s}
+.lb-close:hover{background:var(--red);transform:rotate(90deg)}
+
+/* MODALS */
+.modal{position:fixed;inset:0;z-index:10001;display:flex;align-items:center;justify-content:center;padding:24px;
+  opacity:0;visibility:hidden;transition:.4s var(--ease)}
+.modal.open{opacity:1;visibility:visible}
+.modal-bg{position:absolute;inset:0;background:rgba(10,5,5,.8);backdrop-filter:blur(8px)}
+.modal-card{position:relative;z-index:1;background:var(--page-bg);color:var(--page-fg);border-radius:16px;max-width:820px;width:100%;
+  max-height:88vh;overflow-y:auto;transform:translateY(30px) scale(.98);transition:.5s var(--ease);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.modal.open .modal-card{transform:none}
+.modal-close{position:absolute;top:18px;right:18px;z-index:5;width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,.1);display:flex;align-items:center;justify-content:center;font-size:1.3rem;transition:.3s}
+.modal-close:hover{background:var(--red);color:#fff;transform:rotate(90deg)}
+.veh-modal-img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:16px 16px 0 0}
+.veh-modal-body{padding:clamp(24px,4vw,40px)}
+.veh-modal-body h3{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem)}
+.veh-modal-body .tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.veh-modal-body .tagline{font-size:1.1rem;color:var(--muted);margin-bottom:28px}
+.spec-table{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.spec-table .row{padding:16px;border:1px solid var(--hairline);border-radius:10px;transition:.3s}
+.spec-table .row:hover{border-color:var(--red)}
+.spec-table .row .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.spec-table .row .v{font-family:var(--sans);font-weight:600;margin-top:6px;font-size:.95rem}
+.spec-table .row.full{grid-column:1/-1}
+@media(max-width:600px){.spec-table{grid-template-columns:1fr}}
+.cmp-modal-card{max-width:1000px}
+.cmp-table{width:100%;border-collapse:collapse}
+.cmp-table th,.cmp-table td{padding:16px 18px;text-align:left;border-bottom:1px solid var(--hairline);font-size:.92rem;vertical-align:top}
+.cmp-table th{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.cmp-table .veh-col{font-family:var(--serif);font-weight:600;font-size:1.1rem;color:var(--page-fg)}
+.cmp-table .img-cell{padding:0}
+.cmp-table .img-cell img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.cmp-scroll{overflow-x:auto}
+
+/* FUTURE */
+#future{background:var(--night-2);color:#fff;text-align:center}
+.future-glow{position:absolute;width:50vw;height:50vw;max-width:600px;max-height:600px;border-radius:50%;
+  background:radial-gradient(circle,var(--red-glow),transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(50px);z-index:0}
+.future-content{position:relative;z-index:1;max-width:760px;margin:0 auto}
+.future-content .eyebrow{justify-content:center}
+.future-content h2{font-family:var(--serif);font-weight:700;font-size:clamp(2.4rem,7vw,5.5rem);letter-spacing:-.02em;margin:20px 0 24px}
+.future-content p{color:rgba(255,255,255,.8);font-size:1.1rem;margin-bottom:36px}
+
+/* TEAM */
+#team{background:var(--paper);color:var(--ink)}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;max-width:900px;margin:0 auto}
+.team-card{position:relative;aspect-ratio:3/4;border-radius:14px;overflow:hidden;cursor:pointer;box-shadow:0 24px 50px rgba(0,0,0,.15)}
+.team-card img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.team-card:hover img{transform:scale(1.06)}
+.team-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(26,10,10,.96) 100%)}
+.team-info{position:absolute;bottom:0;left:0;right:0;padding:30px;z-index:2;color:#fff}
+.team-info h4{font-family:var(--serif);font-size:1.6rem}
+.team-info .role{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-top:6px}
+.team-bio{max-height:0;overflow:hidden;transition:max-height .5s var(--ease);color:rgba(255,255,255,.85);font-size:.92rem}
+.team-card:hover .team-bio{max-height:160px;margin-top:14px}
+@media(max-width:640px){.team-grid{grid-template-columns:1fr;max-width:420px}}
+
+/* FINAL CTA */
+#final{background:linear-gradient(180deg,#2a1925,#150a10);color:#fff;text-align:center;position:relative}
+.final-glow{position:absolute;width:40vw;height:40vw;max-width:500px;max-height:500px;border-radius:50%;background:radial-gradient(circle,var(--red-glow),transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%)}
+.final-content{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.final-content h2{font-family:var(--serif);font-weight:700;font-size:clamp(2.2rem,6vw,4.5rem);margin-bottom:36px}
+.final-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.final-ctas .btn-ghost{border-color:rgba(255,255,255,.4);color:#fff}
+.final-ctas .btn-ghost:hover{border-color:var(--red);color:var(--red)}
+
+/* FOOTER */
+footer{background:var(--night);color:#fff;padding:70px clamp(20px,5vw,80px) 40px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1300px;margin:0 auto}
+.foot-brand .logo{font-family:var(--serif);font-weight:700;font-size:1.8rem;margin-bottom:16px}
+.foot-brand .logo .dot{color:var(--red)}
+.foot-brand .tag{font-family:var(--script);font-size:1.6rem;color:var(--red);margin-bottom:8px}
+.foot-brand .by{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.foot-col h5{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.foot-col a{display:block;color:rgba(255,255,255,.65);font-size:.92rem;padding:5px 0;transition:.3s}
+.foot-col a:hover{color:var(--red);transform:translateX(4px)}
+.foot-disclaimer{max-width:1300px;margin:50px auto 0;padding-top:30px;border-top:1px solid rgba(255,255,255,.1);
+  font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.7}
+@media(max-width:820px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.foot-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="noise"></div>
+
+<div id="preloader">
+  <div class="pl-logo">TOYOTA<span class="dot">.</span></div>
+  <div class="pl-bar"><span></span></div>
+  <div class="pl-text">Loading the journey…</div>
+</div>
+
+<div id="progress"></div>
+
+<nav id="mainnav">
+  <a href="#hero" class="nav-logo"><img id="navlogo" src="assets/img/31-toyota.svg" alt="Toyota" onerror="this.style.display='none'" /><span>TOYOTA<span class="dot">.</span></span></a>
+  <div class="nav-links">
+    <a href="#philosophy">Story</a>
+    <a href="#heritage">Heritage</a>
+    <a href="#philippines">Philippines</a>
+    <a href="#vehicles">Vehicles</a>
+    <a href="#innovation">Innovation</a>
+    <a href="#mission">Mission</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#team">Team</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <a href="#vehicles" class="nav-cta">Explore Vehicles</a>
+  </div>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#philosophy">Story</a>
+  <a href="#heritage">Heritage</a>
+  <a href="#philippines">Philippines</a>
+  <a href="#vehicles">Vehicles</a>
+  <a href="#innovation">Innovation</a>
+  <a href="#mission">Mission</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#team">Team</a>
+</div>
+
+<section id="hero">
+  <div class="hero-bg"><img src="assets/img/18-toyota-fortuner-cape-town-p1060077.jpg" alt="Toyota Fortuner on a misty highland road" onerror="this.onerror=null;this.parentElement.style.background='linear-gradient(135deg,#2a1925,#1A0A0A)';this.style.display='none'" /></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-content">
+    <div class="eyebrow hero-eyebrow">Heritage · Innovation · The Road Ahead</div>
+    <h1 class="hero-title">
+      <span class="line"><span>A LEGACY BUILT</span></span>
+      <span class="line"><span>FOR THE <em class="accent">ROAD AHEAD.</em></span></span>
+    </h1>
+    <p class="hero-sub">For over eight decades, Toyota has moved the world — and the Philippines — forward. From the looms of Sakichi Toyoda to the electrified roads of tomorrow, this is a story of relentless improvement, engineered for every Filipino journey.</p>
+    <div class="hero-ctas">
+      <a href="#philosophy" class="btn btn-ghost">Explore the Journey <span class="arr">→</span></a>
+      <a href="#vehicles" class="btn btn-primary">Discover Vehicles <span class="arr">→</span></a>
+    </div>
+  </div>
+  <div class="scroll-cue"><span class="mouse"></span>Scroll to explore</div>
+  <div class="hero-creators">
+    <div class="avs"><img src="assets/img/creators/katrina.jpg" alt="Katrina Guillermo" /><img src="assets/img/creators/trish.jpg" alt="Trish Stephanie Cahanding" /></div>
+    <div class="meta"><span class="k">Created by</span><span class="n">Katrina &amp; Trish</span></div>
+  </div>
+</section>
+
+<div class="marquee"><div class="marquee-track" id="marqueeTrack"></div></div>
+
+<section id="philosophy">
+  <div class="phil-grid">
+    <div class="reveal">
+      <div class="eyebrow">The Philosophy</div>
+      <h2 class="sec-title">More than a car.<br/><em>A legacy.</em></h2>
+      <p class="lead">At the heart of Toyota beats <strong>Kaizen</strong> — the philosophy of continuous improvement. It is the belief that nothing is ever finished, that every process, every part, every journey can be made better. This spirit, born in a small Japanese loom workshop, now drives millions of Filipinos to work, to family, and to adventure every single day.</p>
+      <p class="phil-quote">Let's Go Places.</p>
+    </div>
+    <div class="phil-img-wrap reveal">
+      <img src="assets/img/28-toyota-vios-xp150-sedan-front-view.jpg" alt="Toyota Vios" onerror="this.onerror=null;this.parentElement.style.background='linear-gradient(135deg,#2a1925,#1A0A0A)';this.style.display='none'" />
+      <div class="phil-badge"><span class="red">Heritage</span> / 1937 — Today</div>
+    </div>
+  </div>
+</section>
+
+<section id="story">
+  <div class="story-head reveal">
+    <div class="eyebrow">The Toyota Story</div>
+    <h2 class="sec-title">A century in <em>motion.</em></h2>
+  </div>
+  <div class="story-stage" id="storyStage"></div>
+  <div class="story-dots" id="storyDots"></div>
+</section>
+
+<section id="heritage">
+  <div class="tl-head reveal">
+    <div class="eyebrow">Heritage Timeline</div>
+    <h2 class="sec-title">Moments that moved a <em>nation.</em></h2>
+  </div>
+  <div class="tl-tabs" id="tlTabs"></div>
+  <div class="tl-body" id="tlBody"></div>
+  <div class="tl-arrows">
+    <button id="tlPrev" aria-label="Previous"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <button id="tlNext" aria-label="Next"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+  </div>
+</section>
+
+<section id="philippines">
+  <div class="ph-head reveal">
+    <div>
+      <div class="eyebrow">Toyota in the Philippines</div>
+      <h2 class="sec-title">A Filipino road, <em>well traveled.</em></h2>
+    </div>
+    <p class="lead">Since 1988, Toyota Motor Philippines has grown into one of the country's most trusted automotive brands — from metro streets to provincial highways, weaving itself into the rhythm of daily Filipino life.</p>
+  </div>
+  <div class="ph-stats reveal-stagger">
+    <div class="ph-stat"><div class="num" data-count="70" data-suffix="+">0</div><div class="lbl">Nationwide Dealers</div></div>
+    <div class="ph-stat"><div class="num" data-count="17">0</div><div class="lbl">Vehicle Model Lines</div></div>
+    <div class="ph-stat"><div class="num" data-count="80" data-suffix="+">0</div><div class="lbl">Provinces Served</div></div>
+    <div class="ph-stat"><div class="num" data-count="1" data-prefix="#">0</div><div class="lbl">Brand Recall*</div></div>
+  </div>
+  <div class="ph-charts">
+    <div class="chart-card reveal">
+      <h4>Model Popularity</h4>
+      <div id="barChart"></div>
+    </div>
+    <div class="chart-card reveal">
+      <h4>Vehicle Category Mix</h4>
+      <div class="donut-wrap"><svg id="donutChart" width="180" height="180" viewBox="0 0 180 180"></svg><div class="donut-legend" id="donutLegend"></div></div>
+    </div>
+  </div>
+  <p class="ph-disclaimer">*Demo data for illustration purposes only.</p>
+</section>
+
+<section id="vehicles">
+  <div class="veh-head reveal">
+    <div class="eyebrow">The Lineup</div>
+    <h2 class="sec-title">Find your <em>drive.</em></h2>
+    <p class="lead">Twenty-one models. One promise. Hover to preview specs, click to explore, or select up to three to compare side by side.</p>
+  </div>
+  <div class="veh-controls">
+    <input class="veh-search" id="vehSearch" type="text" placeholder="Search vehicles by name or category…" aria-label="Search vehicles" />
+    <div class="veh-filters" id="vehFilters"></div>
+  </div>
+  <div class="veh-grid" id="vehGrid"></div>
+</section>
+
+<div id="comparebar">
+  <div class="compare-chips" id="compareChips"></div>
+  <div class="compare-actions">
+    <button class="btn-clear" id="cmpClear">Clear</button>
+    <button class="btn-compare" id="cmpNow" disabled>Compare Now</button>
+  </div>
+</div>
+
+<section id="innovation">
+  <div class="inn-bg"><img src="assets/img/05-2018-toyota-camry-asv70r-ascent-sedan-2018-08-27-01.jpg" alt="" onerror="this.onerror=null;this.parentElement.style.display='none'" /></div>
+  <div class="inn-grid">
+    <div class="inn-list" id="innList"></div>
+    <div class="inn-visual" id="innVisual"></div>
+  </div>
+</section>
+
+<section id="why">
+  <div style="max-width:1300px;margin:0 auto 50px" class="reveal">
+    <div class="eyebrow">Why Toyota</div>
+    <h2 class="sec-title">Five reasons. <em>One standard.</em></h2>
+  </div>
+  <div class="why-grid" id="whyGrid"></div>
+</section>
+
+<section id="mission">
+  <div class="mv-bg"><img src="assets/img/26-toyota-prius-xw60-plug-in-hybrid-img-9905.jpg" alt="" onerror="this.onerror=null;this.parentElement.style.display='none'" /></div>
+  <div style="max-width:1100px;margin:0 auto 50px;text-align:center" class="reveal">
+    <div class="eyebrow" style="justify-content:center">Mission & Vision</div>
+    <h2 class="sec-title" style="color:#fff">The road we're <em>building.</em></h2>
+  </div>
+  <div class="mv-grid">
+    <div class="mv-card reveal">
+      <div class="mv-watermark">M</div>
+      <div class="mv-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <h3>Our Mission</h3>
+      <p>Producing happiness for all — by making mobility accessible, reliable, and joyful for every Filipino, every community, and every generation on the road.</p>
+    </div>
+    <div class="mv-card reveal">
+      <div class="mv-watermark">V</div>
+      <div class="mv-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg></div>
+      <h3>Our Vision</h3>
+      <p>Leading the future mobility society — where electrified, connected, and autonomous technologies move people and goods with zero emissions and zero accidents.</p>
+    </div>
+  </div>
+</section>
+
+<section id="campaign">
+  <div style="max-width:1300px;margin:0 auto 50px" class="reveal">
+    <div class="eyebrow">Campaigns</div>
+    <h2 class="sec-title" style="color:#fff">Stories worth the <em>drive.</em></h2>
+  </div>
+  <div class="camp-grid" id="campGrid"></div>
+</section>
+
+<section id="gallery">
+  <div style="max-width:1400px;margin:0 auto 50px" class="reveal">
+    <div class="eyebrow">Gallery</div>
+    <h2 class="sec-title">In motion, in <em>detail.</em></h2>
+  </div>
+  <div class="gal-grid" id="galGrid"></div>
+</section>
+
+<section id="future">
+  <div class="future-glow"></div>
+  <div class="future-content reveal">
+    <div class="eyebrow" style="justify-content:center">The Future</div>
+    <h2>THE ROAD AHEAD</h2>
+    <p>Electrification. Connected vehicles. Zero-traffic fatalities. Toyota is engineering a future where mobility means freedom — for people, for communities, and for the planet we all share. The journey doesn't end. It evolves.</p>
+    <a href="#vehicles" class="btn btn-primary">Explore the Future <span class="arr">→</span></a>
+  </div>
+</section>
+
+<section id="team">
+  <div style="max-width:900px;margin:0 auto 50px" class="reveal">
+    <div class="eyebrow">The Creators</div>
+    <h2 class="sec-title">Behind the <em>journey.</em></h2>
+  </div>
+  <div class="team-grid" id="teamGrid"></div>
+</section>
+
+<section id="final">
+  <div class="final-glow"></div>
+  <div class="final-content reveal">
+    <h2>The journey continues.</h2>
+    <div class="final-ctas">
+      <a href="#hero" class="btn btn-ghost">↑ Back to the Top</a>
+      <a href="#team" class="btn btn-primary">Meet the Team <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo">TOYOTA<span class="dot">.</span></div>
+      <div class="tag">Toyota — Let's Go Places.</div>
+      <div class="by">Designed &amp; Developed by EJ Christian Medilo</div>
+    </div>
+    <div class="foot-col">
+      <h5>Explore</h5>
+      <a href="#philosophy">Story</a>
+      <a href="#heritage">Heritage</a>
+      <a href="#philippines">Philippines</a>
+      <a href="#innovation">Innovation</a>
+    </div>
+    <div class="foot-col">
+      <h5>Vehicles</h5>
+      <a href="#vehicles">Sedans</a>
+      <a href="#vehicles">SUVs</a>
+      <a href="#vehicles">Pickups</a>
+      <a href="#vehicles">Performance</a>
+    </div>
+    <div class="foot-col">
+      <h5>Project</h5>
+      <a href="#team">The Team</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#mission">Mission</a>
+      <a href="#future">The Future</a>
+    </div>
+  </div>
+  <p class="foot-disclaimer">Toyota Heritage PH is an independent automotive web design project by EJ Christian Medilo. It is not affiliated with, endorsed by, or sponsored by Toyota Motor Corporation or Toyota Motor Philippines. All vehicle names and trademarks belong to their respective owners. Photography is sourced from Wikimedia Commons under Creative Commons licenses. "Toyota" and "Let's Go Places" are trademarks of Toyota Motor Corporation.</p>
+</footer>
+
+<div class="modal" id="vehModal"><div class="modal-bg" data-close></div><div class="modal-card" id="vehModalCard"></div></div>
+<div class="modal" id="cmpModal"><div class="modal-bg" data-close></div><div class="modal-card cmp-modal-card" id="cmpModalCard"></div></div>
+<div class="modal" id="campModal"><div class="modal-bg" data-close></div><div class="modal-card" id="campModalCard" style="max-width:600px"></div></div>
+<div id="lightbox"><div class="lb-close" id="lbClose">×</div><img id="lbImg" alt="" /><button class="lb-nav prev" id="lbPrev" aria-label="Previous">‹</button><button class="lb-nav next" id="lbNext" aria-label="Next">›</button></div>
+
+<script>
+/* Local asset manifest — every Wikimedia file used by this page, downloaded to assets/img. */
+const LOCAL_IMG = {
+  "1955 Toyopet Crown 03.jpg": "assets/img/01-1955-toyopet-crown-03.jpg",
+  "1968 Toyota Corolla 1100 Deluxe.jpg": "assets/img/02-1968-toyota-corolla-1100-deluxe.jpg",
+  "1997 Toyota Prius 02.jpg": "assets/img/03-1997-toyota-prius-02.jpg",
+  "2017 Toyota Agya 1.2 G B101RA (20190515).jpg": "assets/img/04-2017-toyota-agya-1-2-g-b101ra-20190515.jpg",
+  "2018 Toyota Camry (ASV70R) Ascent sedan (2018-08-27) 01.jpg": "assets/img/05-2018-toyota-camry-asv70r-ascent-sedan-2018-08-27-01.jpg",
+  "2018 Toyota Corolla (ZRE172R) Ascent sedan (2018-11-02) 02.jpg": "assets/img/06-2018-toyota-corolla-zre172r-ascent-sedan-2018-11-02-02.jpg",
+  "2021 Toyota Land Cruiser 300 3.4 ZX (Colombia) front view 04.png": "assets/img/07-2021-toyota-land-cruiser-300-3-4-zx-colombia-front-view-04.png",
+  "2022 Toyota Avanza (PH).jpg": "assets/img/08-2022-toyota-avanza-ph.jpg",
+  "2023 Denver Auto Show Toyota Crown front quarter.jpg": "assets/img/09-2023-denver-auto-show-toyota-crown-front-quarter.jpg",
+  "Dülmen, Auto Bertels, Toyota GR Supra -- 2021 -- 9552-4.jpg": "assets/img/10-d-lmen-auto-bertels-toyota-gr-supra-2021-9552-4.jpg",
+  "Kiichiro Toyoda.jpg": "assets/img/11-kiichiro-toyoda.jpg",
+  "Toyoda Modell AA (Replica), 1936 (Japan) in the Toyota Automobile Museum.JPG": "assets/img/12-toyoda-modell-aa-replica-1936-japan-in-the-toyota-automobile-museum.jpg",
+  "Toyota (Innova) Zenix 2.0 V 2023 (1).jpg": "assets/img/13-toyota-innova-zenix-2-0-v-2023-1.jpg",
+  "Toyota AA (1936).jpg": "assets/img/14-toyota-aa-1936.jpg",
+  "Toyota Alphard, London (LRM 20240516 173241).jpg": "assets/img/15-toyota-alphard-london-lrm-20240516-173241.jpg",
+  "Toyota bZ4X Automesse Ludwigsburg 2022 1X7A5897.jpg": "assets/img/16-toyota-bz4x-automesse-ludwigsburg-2022-1x7a5897.jpg",
+  "Toyota Corolla Cross Hybrid 1X7A1861.jpg": "assets/img/17-toyota-corolla-cross-hybrid-1x7a1861.jpg",
+  "Toyota Fortuner, Cape Town (P1060077).jpg": "assets/img/18-toyota-fortuner-cape-town-p1060077.jpg",
+  "Toyota GR Corolla (E210) Washington DC Metro Area, USA.jpg": "assets/img/19-toyota-gr-corolla-e210-washington-dc-metro-area-usa.jpg",
+  "Toyota GR Yaris RZ 1X7A0252.jpg": "assets/img/20-toyota-gr-yaris-rz-1x7a0252.jpg",
+  "Toyota GR86 IMG 7863.jpg": "assets/img/21-toyota-gr86-img-7863.jpg",
+  "TOYOTA HIACE China (1).jpg": "assets/img/22-toyota-hiace-china-1.jpg",
+  "Toyota HiLux GR Sport 1X7A7281.jpg": "assets/img/23-toyota-hilux-gr-sport-1x7a7281.jpg",
+  "Toyota Land Cruiser Prado, Baku (P1090223).jpg": "assets/img/24-toyota-land-cruiser-prado-baku-p1090223.jpg",
+  "Toyota Motor Manufacturing Kentucky visitor center.jpg": "assets/img/25-toyota-motor-manufacturing-kentucky-visitor-center.jpg",
+  "Toyota Prius (XW60) Plug-in Hybrid IMG 9905.jpg": "assets/img/26-toyota-prius-xw60-plug-in-hybrid-img-9905.jpg",
+  "Toyota Raize 2021 Red.jpg": "assets/img/27-toyota-raize-2021-red.jpg",
+  "Toyota Vios (XP150) sedan front view.jpg": "assets/img/28-toyota-vios-xp150-sedan-front-view.jpg",
+  "Toyota Yaris Cross Hybrid GR Sport IMG 2145.jpg": "assets/img/29-toyota-yaris-cross-hybrid-gr-sport-img-2145.jpg",
+  "Toyota, Paris Motor Show 2018, Paris (1Y7A1784).jpg": "assets/img/30-toyota-paris-motor-show-2018-paris-1y7a1784.jpg",
+  "Toyota.svg": "assets/img/31-toyota.svg"
+};
+const WM = f => LOCAL_IMG[f] || `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(f.replace(/ /g,'_'))}`;
+const vehicles = [
+  {id:'vios',name:'Toyota Vios',category:'Sedan',tagline:"The nation's daily driver",engine:'1.3L / 1.5L Dual VVT-iE',seats:'5',fuel:'Gasoline',tech:'Smart Entry, 7" Display Audio, Apple CarPlay',safety:'7 Airbags, VSC, ABS, EBD',img:'Toyota Vios (XP150) sedan front view.jpg'},
+  {id:'corolla-altis',name:'Toyota Corolla Altis',category:'Sedan',tagline:"The world's bestseller, refined",engine:'1.6L / 1.8L / 2.0L VVT-i',seats:'5',fuel:'Gasoline',tech:'9" Display Audio, Wireless CarPlay',safety:'Toyota Safety Sense, 7 Airbags',img:'2018 Toyota Corolla (ZRE172R) Ascent sedan (2018-11-02) 02.jpg'},
+  {id:'camry',name:'Toyota Camry',category:'Sedan',tagline:'Executive comfort, hybrid heart',engine:'2.5L Hybrid Dynamic Force',seats:'5',fuel:'Hybrid',tech:'9" HUD, JBL Audio, Dual Zone Climate',safety:'TSS, 10 Airbags, BSM',img:'2018 Toyota Camry (ASV70R) Ascent sedan (2018-08-27) 01.jpg'},
+  {id:'yaris-cross',name:'Toyota Yaris Cross',category:'SUV',tagline:'Compact crossover confidence',engine:'1.5L Hybrid',seats:'5',fuel:'Hybrid',tech:'8" Display, Wireless Charger',safety:'TSS, 7 Airbags, PCS',img:'Toyota Yaris Cross Hybrid GR Sport IMG 2145.jpg'},
+  {id:'corolla-cross',name:'Toyota Corolla Cross',category:'SUV',tagline:'Urban utility, hybrid efficiency',engine:'1.8L Hybrid',seats:'5',fuel:'Hybrid',tech:'9" Display Audio, Panoramic View',safety:'TSS, 7 Airbags, PCS',img:'Toyota Corolla Cross Hybrid 1X7A1861.jpg'},
+  {id:'rav4',name:'Toyota RAV4',category:'SUV',tagline:'Adventure-ready icon',engine:'2.5L Hybrid Dynamic Force',seats:'5',fuel:'Hybrid',tech:'8" Display, Pano Monitor',safety:'TSS 2.0, 8 Airbags',img:'Toyota, Paris Motor Show 2018, Paris (1Y7A1784).jpg'},
+  {id:'fortuner',name:'Toyota Fortuner',category:'SUV',tagline:'Built for every terrain',engine:'2.4L / 2.8L D-4D Diesel',seats:'7',fuel:'Diesel',tech:'8" Display, 360 Camera, 4WD',safety:'7 Airbags, VSC, ABS',img:'Toyota Fortuner, Cape Town (P1060077).jpg'},
+  {id:'hilux',name:'Toyota Hilux',category:'Pickup',tagline:'The unbreakable legend',engine:'2.4L / 2.8L D-4D Diesel',seats:'5',fuel:'Diesel',tech:'8" Display, 4WD Diff Lock',safety:'7 Airbags, VSC, A-TRC',img:'Toyota HiLux GR Sport 1X7A7281.jpg'},
+  {id:'innova',name:'Toyota Innova / Zenix',category:'MPV',tagline:'Family journeys, elevated',engine:'2.5L / 2.8L Diesel & 2.0L Gas',seats:'7',fuel:'Diesel / Gas',tech:'10" Display, Ambient Lighting',safety:'6 Airbags, VSC, ABS',img:'Toyota (Innova) Zenix 2.0 V 2023 (1).jpg'},
+  {id:'wigo',name:'Toyota Wigo',category:'Hatchback',tagline:'City-smart, budget-friendly',engine:'1.0L VVT-i',seats:'5',fuel:'Gasoline',tech:'7" Display, Apple CarPlay',safety:'Dual Airbags, ABS',img:'2017 Toyota Agya 1.2 G B101RA (20190515).jpg'},
+  {id:'prius',name:'Toyota Prius',category:'Hatchback',tagline:'The hybrid pioneer',engine:'1.8L Hybrid Synergy Drive',seats:'5',fuel:'Hybrid',tech:'11.6" Display, Head-Up Display',safety:'TSS 3.0, 8 Airbags',img:'Toyota Prius (XW60) Plug-in Hybrid IMG 9905.jpg'},
+  {id:'crown',name:'Toyota Crown',category:'Sedan',tagline:'A new kind of luxury',engine:'2.4L Turbo Hybrid',seats:'5',fuel:'Hybrid',tech:'12.3" Dual Display, Panoramic Roof',safety:'TSS, 8 Airbags',img:'2023 Denver Auto Show Toyota Crown front quarter.jpg'},
+  {id:'raize',name:'Toyota Raize',category:'SUV',tagline:'Compact SUV energy',engine:'1.0L Turbo',seats:'5',fuel:'Gasoline',tech:'9" Display, Wireless Charger',safety:'6 Airbags, VSC',img:'Toyota Raize 2021 Red.jpg'},
+  {id:'lc-prado',name:'Toyota Land Cruiser Prado',category:'SUV',tagline:'Legendary capability',engine:'2.8L D-4D Diesel',seats:'7',fuel:'Diesel',tech:'9" Display, MTS, Crawl Control',safety:'7 Airbags, TSS, ABS',img:'Toyota Land Cruiser Prado, Baku (P1090223).jpg'},
+  {id:'lc300',name:'Toyota Land Cruiser 300',category:'SUV',tagline:'The king of the road',engine:'3.3L V6 Twin Turbo Diesel',seats:'7',fuel:'Diesel',tech:'12.3" Display, MTS, Multi-Terrain Monitor',safety:'10 Airbags, TSS',img:'2021 Toyota Land Cruiser 300 3.4 ZX (Colombia) front view 04.png'},
+  {id:'avanza',name:'Toyota Avanza',category:'MPV',tagline:'Practical family mobility',engine:'1.0L / 1.3L VVT-i',seats:'7',fuel:'Gasoline',tech:'8" Display, Apple CarPlay',safety:'6 Airbags, ABS',img:'2022 Toyota Avanza (PH).jpg'},
+  {id:'alphard',name:'Toyota Alphard',category:'MPV',tagline:'The pinnacle of premium',engine:'2.5L Hybrid',seats:'7',fuel:'Hybrid',tech:'14" Display, Ottoman Seats, Moonroof',safety:'8 Airbags, TSS, BSM',img:'Toyota Alphard, London (LRM 20240516 173241).jpg'},
+  {id:'hiace',name:'Toyota Hiace',category:'MPV',tagline:'The backbone of business',engine:'2.8L D-4D Diesel',seats:'15',fuel:'Diesel',tech:'2-DIN Audio, USB',safety:'3 Airbags, ABS, VSC',img:'TOYOTA HIACE China (1).jpg'},
+  {id:'gr86',name:'Toyota GR86',category:'Performance',tagline:'Pure driving joy',engine:'2.4L Boxer Flat-4',seats:'4',fuel:'Gasoline',tech:'8" Display, Track Mode, LSD',safety:'7 Airbags, ABS, VSC',img:'Toyota GR86 IMG 7863.jpg'},
+  {id:'gr-supra',name:'Toyota GR Supra',category:'Performance',tagline:'The legend reborn',engine:'3.0L Turbo Inline-6',seats:'2',fuel:'Gasoline',tech:'8.8" Display, Active Sport Differential',safety:'6 Airbags, ABS, VSC',img:'Dülmen, Auto Bertels, Toyota GR Supra -- 2021 -- 9552-4.jpg'},
+  {id:'gr-yaris',name:'Toyota GR Yaris',category:'Performance',tagline:'Rally-bred hot hatch',engine:'1.6L Turbo 3-Cylinder',seats:'5',fuel:'Gasoline',tech:'GR-Four AWD, Track Mode',safety:'7 Airbags, ABS, VSC',img:'Toyota GR Yaris RZ 1X7A0252.jpg'},
+  {id:'gr-corolla',name:'Toyota GR Corolla',category:'Performance',tagline:'Hatchback fury',engine:'1.6L Turbo 3-Cylinder',seats:'5',fuel:'Gasoline',tech:'GR-Four AWD, Circuit Mode',safety:'7 Airbags, ABS, VSC',img:'Toyota GR Corolla (E210) Washington DC Metro Area, USA.jpg'},
+];
+
+const storySlides = [
+  {era:'1867 – 1924',title:"The Inventor's Spirit",desc:"Sakichi Toyoda invents the automatic loom — a machine that could change threads without stopping. It plants the seed of Kaizen: continuous improvement.",img:'Kiichiro Toyoda.jpg'},
+  {era:'1926 – 1933',title:'From Looms to a New Dream',desc:'Toyoda Automatic Loom Works thrives, but Kiichiro Toyoda envisions something greater — the automobile. He travels to study the world\'s carmakers.',img:'Toyoda Modell AA (Replica), 1936 (Japan) in the Toyota Automobile Museum.JPG'},
+  {era:'August 28, 1937',title:'Toyota Motor Co. is Born',desc:'Toyota Motor Co., Ltd. is founded. The name shifts from "Toyoda" to "Toyota" — eight brush strokes, a symbol of prosperity and good fortune.',img:'Toyota AA (1936).jpg'},
+  {era:'1966',title:'The Corolla Legacy Begins',desc:'The first Corolla rolls off the line. It would become the best-selling car in history, defining reliability for generations to come.',img:'1968 Toyota Corolla 1100 Deluxe.jpg'},
+  {era:'1997',title:'The Hybrid Revolution',desc:'Toyota launches the Prius — the world\'s first mass-produced hybrid. A quiet revolution that would change the industry forever.',img:'1997 Toyota Prius 02.jpg'},
+  {era:'Today',title:'Mobility for All',desc:'From electrified SUVs to hydrogen-powered Mirai, Toyota reimagines mobility not as a product, but as a service for everyone, everywhere.',img:'Toyota bZ4X Automesse Ludwigsburg 2022 1X7A5897.jpg'},
+];
+
+const timeline = [
+  {year:'1937',title:'The Foundation',desc:'Toyota Motor Co., Ltd. is established in Koromo, Japan (now Toyota City). Kiichiro Toyoda realizes his father\'s loom fortune into a new dream: the automobile.',img:'Toyota AA (1936).jpg'},
+  {year:'1950s',title:'Postwar Recovery',desc:'The Crown sedan debuts in 1955, marking Toyota\'s first fully Japanese-designed passenger car. The company survives early labor strife and begins exporting.',img:'1955 Toyopet Crown 03.jpg'},
+  {year:'1960s–70s',title:'Global Expansion',desc:'The Corolla launches in 1966 and becomes a worldwide phenomenon. Toyota enters the US market and establishes its reputation for reliability and value.',img:'1968 Toyota Corolla 1100 Deluxe.jpg'},
+  {year:'1980s–90s',title:'Luxury & Hybrid',desc:'Lexus debuts in 1989, redefining luxury. In 1997, the Prius launches the hybrid era — a bold bet on a sustainable future that pays off for decades.',img:'1997 Toyota Prius 02.jpg'},
+  {year:'2000s',title:'Dominance in the Philippines',desc:'Toyota Motor Philippines becomes the country\'s #1 automotive brand. The Vios, Innova, and Fortuner become fixtures of Filipino daily life.',img:'Toyota Fortuner, Cape Town (P1060077).jpg'},
+  {year:'Today',title:'Mobility for All',desc:'Electrified lineups, connected vehicles, and a commitment to carbon neutrality by 2050. Toyota looks beyond cars to a future of mobility for everyone.',img:'Toyota bZ4X Automesse Ludwigsburg 2022 1X7A5897.jpg'},
+];
+
+const innovations = [
+  {title:'Hybrid Technology',desc:'Over 20 million electrified vehicles sold worldwide. Toyota\'s hybrid Synergy Drive remains the benchmark for efficient, reliable electrification.',icon:'M13 2L3 14h9l-1 8 10-12h-9l1-8z'},
+  {title:'Safety (Toyota Safety Sense)',desc:'A suite of active safety technologies — pre-collision, lane departure, adaptive cruise, and auto high-beam — standard across the lineup.',icon:'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'},
+  {title:'Connectivity',desc:'Seamless smartphone integration, over-the-air updates, and cloud-connected services keep every Toyota in sync with its driver\'s life.',icon:'M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01'},
+  {title:'Performance',desc:'From the rally-bred GR Yaris to the reborn GR Supra, Toyota\'s Gazoo Racing division brings motorsport DNA to the street.',icon:'M13 2L3 14h9l-1 8 10-12h-9l1-8z'},
+  {title:'Sustainability',desc:'A commitment to carbon neutrality by 2050 through hybrids, plug-ins, full electrics, and hydrogen fuel cells — the right car for the right place.',icon:'M12 2a9 9 0 0 0 0 18c1 0 1.5-.5 1.5-1.5S13 17 13 16s1-1 2-1h2a4 4 0 0 0 4-4c0-5-4-9-9-9z'},
+];
+
+const whyCards = [
+  {num:'01',title:'Reliability',img:'Toyota HiLux GR Sport 1X7A7281.jpg'},
+  {num:'02',title:'Safety',img:'Toyota Corolla Cross Hybrid 1X7A1861.jpg'},
+  {num:'03',title:'Innovation',img:'2018 Toyota Camry (ASV70R) Ascent sedan (2018-08-27) 01.jpg'},
+  {num:'04',title:'Quality',img:'Toyota Motor Manufacturing Kentucky visitor center.jpg'},
+  {num:'05',title:'Sustainability',img:'Toyota Prius (XW60) Plug-in Hybrid IMG 9905.jpg'},
+];
+
+const campaigns = [
+  {title:'Every Journey Matters',quote:'Because the road remembers.',desc:'Every mile tells a story. From the first drive to the thousandth, Toyota is there for the moments that matter — the school runs, the road trips, the homecomings.',img:'Toyota Fortuner, Cape Town (P1060077).jpg'},
+  {title:'Built Without Compromise',quote:'Reliability isn\'t an accident.',desc:'Decades of engineering, tested in the harshest conditions on earth. The Hilux that won\'t break. The Corolla that won\'t quit. Reliability, by design.',img:'Toyota HiLux GR Sport 1X7A7281.jpg'},
+  {title:'The Road Ahead',quote:'Tomorrow, already in motion.',desc:'Electrified. Connected. Autonomous. The future of mobility isn\'t coming — it\'s here, and it\'s built on the same promise that started it all: Kaizen.',img:'Toyota bZ4X Automesse Ludwigsburg 2022 1X7A5897.jpg'},
+];
+
+const galleryImgs = [
+  {img:'Toyota Fortuner, Cape Town (P1060077).jpg',cap:'Fortuner',cls:'gal-big'},
+  {img:'Dülmen, Auto Bertels, Toyota GR Supra -- 2021 -- 9552-4.jpg',cap:'GR Supra',cls:''},
+  {img:'Toyota Prius (XW60) Plug-in Hybrid IMG 9905.jpg',cap:'Prius',cls:'gal-tall'},
+  {img:'Toyota HiLux GR Sport 1X7A7281.jpg',cap:'Hilux',cls:''},
+  {img:'2018 Toyota Camry (ASV70R) Ascent sedan (2018-08-27) 01.jpg',cap:'Camry',cls:'gal-wide'},
+  {img:'Toyota GR Yaris RZ 1X7A0252.jpg',cap:'GR Yaris',cls:''},
+  {img:'2021 Toyota Land Cruiser 300 3.4 ZX (Colombia) front view 04.png',cap:'Land Cruiser 300',cls:'gal-tall'},
+  {img:'Toyota Corolla Cross Hybrid 1X7A1861.jpg',cap:'Corolla Cross',cls:''},
+  {img:'Toyota Alphard, London (LRM 20240516 173241).jpg',cap:'Alphard',cls:''},
+  {img:'Toyota bZ4X Automesse Ludwigsburg 2022 1X7A5897.jpg',cap:'bZ4X',cls:'gal-wide'},
+  {img:'Toyota, Paris Motor Show 2018, Paris (1Y7A1784).jpg',cap:'RAV4',cls:''},
+  {img:'Toyota GR86 IMG 7863.jpg',cap:'GR86',cls:''},
+];
+
+const team = [
+  {name:'Katrina Guillermo',role:'Project Creator',img:'assets/img/creators/katrina.jpg',bio:'Conceptualized and designed the visual narrative, weaving Toyota\'s heritage into an interactive editorial experience.'},
+  {name:'Trish Stephanie Cahanding',role:'Project Creator',img:'assets/img/creators/trish.jpg',bio:'Researched the heritage content and engineered the interactive catalog, charts, and comparison features.'},
+];
+
+window.addEventListener('load',()=>{
+  setTimeout(()=>{document.getElementById('preloader').classList.add('hide');document.getElementById('hero').classList.add('in')},1500);
+});
+
+const themeToggle=document.getElementById('themeToggle');
+const savedTheme=localStorage.getItem('tp-theme')||'dark';
+document.documentElement.setAttribute('data-theme',savedTheme);
+themeToggle.addEventListener('click',()=>{
+  const cur=document.documentElement.getAttribute('data-theme');
+  const next=cur==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',next);
+  localStorage.setItem('tp-theme',next);
+});
+
+const nav=document.getElementById('mainnav'),progress=document.getElementById('progress');
+const navLinks=[...document.querySelectorAll('.nav-links a[href^="#"]')];
+const sections=[...document.querySelectorAll('section[id]')];
+window.addEventListener('scroll',()=>{
+  const sc=window.scrollY,tot=document.body.scrollHeight-window.innerHeight;
+  progress.style.width=(sc/tot*100)+'%';
+  nav.classList.toggle('scrolled',sc>60);
+  let cur='';
+  sections.forEach(s=>{if(sc>=s.offsetTop-200)cur=s.id});
+  navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+},{passive:true});
+
+const burger=document.getElementById('burger'),mm=document.getElementById('mobileMenu');
+burger.addEventListener('click',()=>{burger.classList.toggle('open');mm.classList.toggle('open')});
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{burger.classList.remove('open');mm.classList.remove('open')}));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href').slice(1);const el=document.getElementById(id);if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});burger.classList.remove('open');mm.classList.remove('open')}})});
+
+const heroImg=document.querySelector('.hero-bg img');
+window.addEventListener('scroll',()=>{
+  const sc=window.scrollY;
+  if(sc<window.innerHeight&&heroImg){
+    heroImg.style.transform=`scale(${1.08-sc*0.0002}) translateY(${sc*0.4}px)`;
+  }
+},{passive:true});
+
+const io=new IntersectionObserver((es)=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+},{threshold:0.15});
+document.querySelectorAll('.reveal,.reveal-stagger').forEach(el=>io.observe(el));
+
+const mqItems=['Heritage','Innovation','Reliability','Kaizen','Mobility for All','Built Without Compromise'];
+let mqHTML='';
+for(let r=0;r<2;r++){mqItems.forEach(i=>{mqHTML+=`<span>${i}<span class="sep"> ✦ </span></span>`})}
+document.getElementById('marqueeTrack').innerHTML=mqHTML;
+
+const stage=document.getElementById('storyStage'),dotsWrap=document.getElementById('storyDots');
+let sIdx=0,sTimer;
+stage.innerHTML=storySlides.map((s,i)=>`<div class="story-slide${i===0?' active':''}" data-i="${i}">
+  <img src="${WM(s.img)}" alt="${s.title}" onerror="this.onerror=null;this.parentElement.style.background='linear-gradient(135deg,#2a1925,#1A0A0A)';this.style.display='none'" />
+  <div class="story-text"><div class="story-era">${s.era}</div><div class="story-title">${s.title}</div><div class="story-desc">${s.desc}</div></div>
+</div>`).join('')+
+`<button class="story-nav prev" id="sPrev" aria-label="Previous">‹</button><button class="story-nav next" id="sNext" aria-label="Next">›</button>`;
+dotsWrap.innerHTML=storySlides.map((_,i)=>`<button data-i="${i}" class="${i===0?'active':''}" aria-label="Slide ${i+1}"></button>`).join('');
+const slides=[...stage.querySelectorAll('.story-slide')],dots=[...dotsWrap.querySelectorAll('button')];
+function goStory(i){sIdx=(i+storySlides.length)%storySlides.length;slides.forEach((s,x)=>s.classList.toggle('active',x===sIdx));dots.forEach((d,x)=>d.classList.toggle('active',x===sIdx));clearInterval(sTimer);sTimer=setInterval(()=>goStory(sIdx+1),6000)}
+dots.forEach(d=>d.addEventListener('click',()=>goStory(+d.dataset.i)));
+document.getElementById('sPrev').addEventListener('click',()=>goStory(sIdx-1));
+document.getElementById('sNext').addEventListener('click',()=>goStory(sIdx+1));
+sTimer=setInterval(()=>goStory(sIdx+1),6000);
+
+const tlTabs=document.getElementById('tlTabs'),tlBody=document.getElementById('tlBody');
+let tlIdx=0;
+tlTabs.innerHTML=timeline.map((t,i)=>`<button class="tl-tab${i===0?' active':''}" data-i="${i}">${t.year}</button>`).join('');
+function renderTL(){
+  const t=timeline[tlIdx];
+  tlBody.innerHTML=`<div class="tl-img"><div class="tl-watermark">${t.year}</div><img src="${WM(t.img)}" alt="${t.title}" onerror="this.onerror=null;this.parentElement.style.background='linear-gradient(135deg,#2a1925,#1A0A0A)';this.style.display='none'" /></div>
+  <div class="tl-text"><div class="tl-year">${t.year}</div><h3>${t.title}</h3><p>${t.desc}</p></div>`;
+  [...tlTabs.children].forEach((b,x)=>b.classList.toggle('active',x===tlIdx));
+}
+tlTabs.querySelectorAll('.tl-tab').forEach(b=>b.addEventListener('click',()=>{tlIdx=+b.dataset.i;renderTL()}));
+document.getElementById('tlPrev').addEventListener('click',()=>{tlIdx=(tlIdx-1+timeline.length)%timeline.length;renderTL()});
+document.getElementById('tlNext').addEventListener('click',()=>{tlIdx=(tlIdx+1)%timeline.length;renderTL()});
+renderTL();
+
+const counters=[...document.querySelectorAll('.num[data-count]')];
+const cObs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){animateCount(e.target);cObs.unobserve(e.target)}})},{threshold:0.5});
+counters.forEach(c=>cObs.observe(c));
+function animateCount(el){
+  const target=+el.dataset.count,suffix=el.dataset.suffix||'',prefix=el.dataset.prefix||'';
+  let cur=0;const step=target/60;
+  const tick=()=>{cur+=step;if(cur<target){el.textContent=prefix+Math.floor(cur)+suffix;requestAnimationFrame(tick)}else{el.textContent=prefix+target+suffix}};
+  tick();
+}
+
+const barData=[{name:'Vios',val:82},{name:'Fortuner',val:74},{name:'Hilux',val:69},{name:'Corolla Cross',val:61},{name:'Innova',val:58}];
+document.getElementById('barChart').innerHTML=barData.map(b=>`<div class="bar-row"><span class="name">${b.name}</span><div class="bar-track"><div class="bar-fill" data-w="${b.val}"></div></div><span class="val">${b.val}%</span></div>`).join('');
+const bObs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){[...e.target.querySelectorAll('.bar-fill')].forEach((f,x)=>setTimeout(()=>f.style.width=f.dataset.w+'%',x*120));bObs.unobserve(e.target)}})},{threshold:0.4});
+bObs.observe(document.getElementById('barChart'));
+
+const donutData=[{name:'SUV',val:34,color:'#E60012'},{name:'Sedan',val:26,color:'#C00010'},{name:'Pickup',val:22,color:'#ff5a4d'},{name:'MPV',val:18,color:'#7a0a0a'}];
+const donut=document.getElementById('donutChart'),leg=document.getElementById('donutLegend');
+let offset=0;const C=2*Math.PI*70;let dHTML='';
+donutData.forEach(d=>{
+  const len=d.val/100*C;dHTML+=`<circle cx="90" cy="90" r="70" fill="none" stroke="${d.color}" stroke-width="26" stroke-dasharray="${len} ${C}" stroke-dashoffset="${-offset}" transform="rotate(-90 90 90)" style="transition:stroke-dasharray 1.2s var(--ease)"/>`;
+  offset+=len;
+  leg.innerHTML+=`<div class="li"><span class="sw" style="background:${d.color}"></span>${d.name} — ${d.val}%</div>`;
+});
+donut.innerHTML=dHTML;
+
+const vGrid=document.getElementById('vehGrid'),vFilters=document.getElementById('vehFilters'),vSearch=document.getElementById('vehSearch');
+const cats=['All','Sedan','Hatchback','SUV','MPV','Pickup','Performance'];
+let activeCat='All',searchQ='';
+vFilters.innerHTML=cats.map(c=>`<button class="veh-filter${c==='All'?' active':''}" data-cat="${c}">${c}</button>`).join('');
+vFilters.querySelectorAll('.veh-filter').forEach(b=>b.addEventListener('click',()=>{activeCat=b.dataset.cat;b.classList.add('active');vFilters.querySelectorAll('.veh-filter').forEach(x=>x!==b&&x.classList.remove('active'));renderVeh()}));
+vSearch.addEventListener('input',()=>{searchQ=vSearch.value.toLowerCase();renderVeh()});
+function renderVeh(){
+  const filtered=vehicles.filter(v=>(activeCat==='All'||v.category===activeCat)&&(v.name.toLowerCase().includes(searchQ)||v.category.toLowerCase().includes(searchQ)));
+  vGrid.innerHTML=filtered.length?filtered.map(v=>`<div class="veh-card" data-id="${v.id}" aria-label="View details for ${v.name}, Category: ${v.category}" tabindex="0">
+    <div class="veh-card-inner">
+      <div class="veh-img"><img src="${WM(v.img)}" alt="${v.name}" loading="lazy" onerror="this.onerror=null;this.parentElement.style.background='linear-gradient(135deg,#2a1925,#1A0A0A)';this.style.display='none'" /><span class="veh-tag">${v.category}</span>
+        <div class="veh-spec-preview"><div class="sp"><span class="k">Engine</span><span>${v.engine}</span></div><div class="sp"><span class="k">Seats</span><span>${v.seats}</span></div><div class="sp"><span class="k">Fuel</span><span>${v.fuel}</span></div></div>
+      </div>
+      <div class="veh-body"><div class="veh-name">${v.name}</div><div class="veh-tagline">${v.tagline}</div><div class="veh-explore">Explore Model <span class="arr">→</span></div></div>
+    </div></div>`).join(''):'<div class="veh-empty">No vehicles match your search.</div>';
+  vGrid.querySelectorAll('.veh-card').forEach(c=>{
+    c.addEventListener('click',()=>openVehModal(c.dataset.id));
+    c.addEventListener('keydown',e=>{if(e.key==='Enter')openVehModal(c.dataset.id)});
+    c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-0.5;const y=(e.clientY-r.top)/r.height-0.5;c.querySelector('.veh-card-inner').style.transform=`rotateY(${x*8}deg) rotateX(${-y*8}deg) translateZ(0)`});
+    c.addEventListener('mouseleave',()=>c.querySelector('.veh-card-inner').style.transform='');
+  });
+}
+renderVeh();
+
+const vehModal=document.getElementById('vehModal'),vehCard=document.getElementById('vehModalCard');
+function openVehModal(id){
+  const v=vehicles.find(x=>x.id===id);if(!v)return;
+  vehCard.innerHTML=`<button class="modal-close" data-close>×</button>
+    <img class="veh-modal-img" src="${WM(v.img)}" alt="${v.name}" onerror="this.onerror=null;this.style.background='linear-gradient(135deg,#2a1925,#1A0A0A)'" />
+    <div class="veh-modal-body"><div class="tag">${v.category}</div><h3>${v.name}</h3><div class="tagline">${v.tagline}</div>
+    <div class="spec-table">
+      <div class="row"><div class="k">Engine</div><div class="v">${v.engine}</div></div>
+      <div class="row"><div class="k">Seating</div><div class="v">${v.seats} seats</div></div>
+      <div class="row"><div class="k">Fuel</div><div class="v">${v.fuel}</div></div>
+      <div class="row"><div class="k">Technology</div><div class="v">${v.tech}</div></div>
+      <div class="row full"><div class="k">Safety</div><div class="v">${v.safety}</div></div>
+    </div>
+    <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
+      <button class="btn btn-primary" onclick="addToCompare('${v.id}')">Add to Compare</button>
+      <button class="btn btn-ghost" data-close>Close</button>
+    </div></div>`;
+  vehModal.classList.add('open');document.body.style.overflow='hidden';
+}
+
+let compareIds=[];
+const cmpBar=document.getElementById('comparebar'),cmpChips=document.getElementById('compareChips'),cmpNow=document.getElementById('cmpNow');
+window.addToCompare=function(id){
+  if(compareIds.includes(id)){compareIds=compareIds.filter(x=>x!==id)}else if(compareIds.length<3){compareIds.push(id)}else{return}
+  renderCompare();
+};
+function renderCompare(){
+  cmpChips.innerHTML=compareIds.map(id=>{const v=vehicles.find(x=>x.id===id);return `<div class="compare-chip">${v.name}<button onclick="addToCompare('${id}')" aria-label="Remove">×</button></div>`}).join('');
+  cmpBar.classList.toggle('show',compareIds.length>0);
+  cmpNow.disabled=compareIds.length<2;
+}
+document.getElementById('cmpClear').addEventListener('click',()=>{compareIds=[];renderCompare()});
+cmpNow.addEventListener('click',openCompareModal);
+function openCompareModal(){
+  if(compareIds.length<2)return;
+  const vs=compareIds.map(id=>vehicles.find(x=>x.id===id));
+  const rows=[['Category','category'],['Engine','engine'],['Seating','seats'],['Fuel','fuel'],['Technology','tech'],['Safety','safety']];
+  let html=`<button class="modal-close" data-close>×</button><div style="padding:clamp(24px,4vw,40px)"><div class="eyebrow">Side by Side</div><h2 class="sec-title" style="margin-top:10px">Compare Vehicles</h2><div class="cmp-scroll"><table class="cmp-table"><thead><tr><th></th>${vs.map(v=>`<th class="veh-col">${v.name}</th>`).join('')}</tr></thead><tbody>
+    <tr><td></td>${vs.map(v=>`<td class="img-cell"><img src="${WM(v.img)}" alt="${v.name}" onerror="this.onerror=null;this.style.background='#2a1925'"/></td>`).join('')}</tr>
+    ${rows.map(r=>`<tr><th>${r[0]}</th>${vs.map(v=>`<td>${v[r[1]]}</td>`).join('')}</tr>`).join('')}
+  </tbody></table></div></div>`;
+  document.getElementById('cmpModalCard').innerHTML=html;
+  document.getElementById('cmpModal').classList.add('open');document.body.style.overflow='hidden';
+}
+
+const innList=document.getElementById('innList'),innVisual=document.getElementById('innVisual');
+let innIdx=0;
+innList.innerHTML=innovations.map((i,x)=>`<div class="inn-item${x===0?' active':''}" data-i="${x}"><div class="num">0${x+1}</div><h4>${i.title}</h4><p>${i.desc}</p></div>`).join('');
+function renderInn(){
+  const i=innovations[innIdx];
+  innVisual.innerHTML=`<div class="inn-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="${i.icon}"/></svg></div><h3>${i.title}</h3><p>${i.desc}</p>`;
+  [...innList.children].forEach((c,x)=>c.classList.toggle('active',x===innIdx));
+}
+innList.querySelectorAll('.inn-item').forEach(c=>c.addEventListener('click',()=>{innIdx=+c.dataset.i;renderInn()}));
+renderInn();
+
+document.getElementById('whyGrid').innerHTML=whyCards.map(w=>`<div class="why-card"><img src="${WM(w.img)}" alt="${w.title}" loading="lazy" onerror="this.onerror=null;this.parentElement.style.background='linear-gradient(135deg,#2a1925,#1A0A0A)';this.style.display='none'" /><div class="why-body"><div class="num">${w.num}</div><h4>${w.title}</h4></div></div>`).join('');
+
+const campGrid=document.getElementById('campGrid');
+campGrid.innerHTML=campaigns.map((c,i)=>`<div class="camp-card" data-i="${i}"><img src="${WM(c.img)}" alt="${c.title}" loading="lazy" onerror="this.onerror=null;this.parentElement.style.background='linear-gradient(135deg,#2a1925,#1A0A0A)';this.style.display='none'" /><div class="camp-body"><h4>${c.title}</h4><p>${c.quote}</p></div></div>`).join('');
+campGrid.querySelectorAll('.camp-card').forEach(c=>c.addEventListener('click',()=>{
+  const cmp=campaigns[+c.dataset.i];
+  document.getElementById('campModalCard').innerHTML=`<button class="modal-close" data-close>×</button><div style="padding:clamp(28px,5vw,48px)"><div class="eyebrow">Campaign</div><h2 class="sec-title" style="margin-top:12px">${cmp.title}</h2><p style="font-family:var(--script);font-size:1.6rem;color:var(--red);margin-bottom:20px">${cmp.quote}</p><p class="lead">${cmp.desc}</p></div>`;
+  document.getElementById('campModal').classList.add('open');document.body.style.overflow='hidden';
+}));
+
+const galGrid=document.getElementById('galGrid');
+galGrid.innerHTML=galleryImgs.map((g,i)=>`<div class="gal-item ${g.cls}" data-i="${i}"><img src="${WM(g.img)}" alt="${g.cap}" loading="lazy" onerror="this.onerror=null;this.parentElement.style.background='linear-gradient(135deg,#2a1925,#1A0A0A)';this.style.display='none'" /><div class="gal-cap">${g.cap}</div></div>`).join('');
+const lightbox=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg');let lbIdx=0;
+function openLB(i){lbIdx=i;lbImg.src=WM(galleryImgs[i].img);lbImg.onerror=()=>{lbImg.style.background='#2a1925';lbImg.removeAttribute('src')};lightbox.classList.add('open');document.body.style.overflow='hidden'}
+function lbNav(d){lbIdx=(lbIdx+d+galleryImgs.length)%galleryImgs.length;openLB(lbIdx)}
+galGrid.querySelectorAll('.gal-item').forEach(g=>g.addEventListener('click',()=>openLB(+g.dataset.i)));
+document.getElementById('lbClose').addEventListener('click',()=>{lightbox.classList.remove('open');document.body.style.overflow=''});
+document.getElementById('lbPrev').addEventListener('click',()=>lbNav(-1));
+document.getElementById('lbNext').addEventListener('click',()=>lbNav(1));
+document.addEventListener('keydown',e=>{if(!lightbox.classList.contains('open'))return;if(e.key==='Escape'){lightbox.classList.remove('open');document.body.style.overflow=''}if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='ArrowRight')lbNav(1)});
+
+document.getElementById('teamGrid').innerHTML=team.map(t=>`<div class="team-card"><img src="${t.img}" alt="${t.name}" onerror="this.onerror=null;this.parentElement.style.background='linear-gradient(135deg,#2a1925,#1A0A0A)';this.style.display='none'" /><div class="team-info"><h4>${t.name}</h4><div class="role">${t.role}</div><div class="team-bio">${t.bio}</div></div></div>`).join('');
+
+document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target.hasAttribute('data-close')||e.target.classList.contains('modal-bg')){m.classList.remove('open');document.body.style.overflow=''}}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal.open').forEach(m=>{m.classList.remove('open');document.body.style.overflow=''})});
+</script>
+</body>
+</html>
